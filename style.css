@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    display: flex;
+    background-image: url(back.jpg);
+    font-family: 'Arial', sans-serif;
+}
+
+.snow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background-image: url(snowio.jpeg);
+    background-size: cover;
+    background-color: transparent;
+    border-radius: 50%;
+    animation: animationSnow 4s ease-in-out infinite;
+}
+
+@keyframes animationSnow {
+    0% {
+        transform: translate(0px, 0px);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(100px, 50vh);
+    }
+}

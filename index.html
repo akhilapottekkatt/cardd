@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        .wave-text {
+            top: 30%;
+            left: 30%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 2em; /* Adjust the font size as needed */
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            animation: waveAnimation 2s infinite;
+        }
+
+        @keyframes waveAnimation {
+            0%, 100% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            25% {
+                transform: translate(-50%, -50%) rotate(-10deg);
+            }
+            50% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            75% {
+                transform: translate(-50%, -50%) rotate(10deg);
+            }
+        }
+    </style>
+    <title>Christmas</title>
+</head>
+<body>
+    <div class="container" id="container">
+        <h1 class="wave-text">Merry Christmas 
+            <br>& <br> Happy New Year</h1>
+        <audio id="christmasAudio" src="we-wish-you-a-merry-christmas_60sec-174155.mp3" loop></audio>
+        <a href="gift.html" class="santa-gift-box" title="Click me!">
+            <img src="gift.gif" alt="Gift Image">
+        </a>
+        <div class="snow"></div>
+    </div>
+
+    <script src="script.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('christmasAudio');
+            var container = document.documentElement;
+
+            // Play audio on user interaction
+            document.body.addEventListener('click', function() {
+                if (audio.paused) {
+                    audio.play();
+                }
+            });
+
+            // Play audio on page load (may not work on some browsers)
+            audio.play();
+
+            // Generate snow
+            generateSnow(container, 50);
+        });
+
+        function generateSnow(container, count) {
+            for (let i = 0; i < count; i++) {
+                let leftSnow = Math.floor(Math.random() * container.clientWidth);
+                let topSnow = Math.floor(Math.random() * container.clientHeight);
+                let widthSnow = Math.floor(Math.random() * 50);
+                let timeSnow = Math.floor((Math.random() * 5) + 5);
+                let blurSnow = Math.floor(Math.random() * 20);
+                let div = document.createElement('div');
+                div.classList.add('snow');
+                div.style.left = leftSnow + 'px';
+                div.style.top = topSnow + 'px';
+                div.style.width = widthSnow + 'px';
+                div.style.height = widthSnow + 'px';
+                div.style.animationDuration = timeSnow + 's';
+                div.style.filter = "blur(" + blurSnow + "px)";
+                container.appendChild(div);
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        .wave-text {
+
+            top: 30%;
+            left: 30%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 2em; /* Adjust the font size as needed */
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            animation: waveAnimation 2s infinite;
+        }
+
+        @keyframes waveAnimation {
+            0%, 100% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            25% {
+                transform: translate(-50%, -50%) rotate(-10deg);
+            }
+            50% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            75% {
+                transform: translate(-50%, -50%) rotate(10deg);
+            }
+        }
+    </style>
+    <title>Christmas</title>
+</head>
+<body>
+    <div class="container" id="container">
+        <h1 class="wave-text">Merry Christmas 
+            <br>& <br> Happy New Year</h1>
+        <audio id="christmasAudio" src="we-wish-you-a-merry-christmas_60sec-174155.mp3" loop></audio>
+        <div  class="santa-gift-box" onclick="openGift()" title="Click me!">
+            <img src="gift.gif" href="gift.html" alt="Gift Image">
+        </div>
+        <div class="snow"></div>
+    </div>
+
+    <script src="script.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('christmasAudio');
+            var container = document.documentElement; // Use document.documentElement to get the entire document
+
+            // Play audio on user interaction
+            document.body.addEventListener('click', function() {
+                if (audio.paused) {
+                    audio.play();
+                }
+            });
+
+            // Play audio on page load (may not work on some browsers)
+            audio.play();
+
+            // Generate snow
+            generateSnow(container, 50);
+        });
+
+        function generateSnow(container, count) {
+            for (let i = 0; i < count; i++) {
+                let leftSnow = Math.floor(Math.random() * container.clientWidth);
+                let topSnow = Math.floor(Math.random() * container.clientHeight);
+                let widthSnow = Math.floor(Math.random() * 50);
+                let timeSnow = Math.floor((Math.random() * 5) + 5);
+                let blurSnow = Math.floor(Math.random() * 20);
+                let div = document.createElement('div');
+                div.classList.add('snow');
+                div.style.left = leftSnow + 'px';
+                div.style.top = topSnow + 'px';
+                div.style.width = widthSnow + 'px';
+                div.style.height = widthSnow + 'px';
+                div.style.animationDuration = timeSnow + 's';
+                div.style.filter = "blur(" + blurSnow + "px)";
+                container.appendChild(div);
+            }
+        }
+    </script>
+</body>
+</html> -->
+
+
+
+
+
