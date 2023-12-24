@@ -4,7 +4,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100%;
-    width: 100%;
+    width: 50%;
     background-size: cover;
     display: flex;
     background-image: url(back.jpg);
